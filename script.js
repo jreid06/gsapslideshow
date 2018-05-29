@@ -156,7 +156,7 @@ $(document).ready(function() {
             }
         });
 
-        // tl.eventCallback('onComplete', restartTimeline);
+        tl.eventCallback('onComplete', restartTimeline);
 
 
     }
