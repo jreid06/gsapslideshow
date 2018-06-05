@@ -37,7 +37,8 @@ $(document).ready(function() {
             text: '<strong>Experience</strong>',
             styles: {
                 margin: 0,
-                left: '55%'
+                left: '55%',
+                width: '30%'
             }
         },
         {
@@ -45,7 +46,8 @@ $(document).ready(function() {
             text: '<strong>Expertise</strong>',
             styles: {
                 margin: 0,
-                left: '55%'
+                left: '55%',
+                width: '30%'
             }
         },
         {
@@ -53,7 +55,8 @@ $(document).ready(function() {
             text: '<strong>Innovation</strong>',
             styles: {
                 margin: 0,
-                left: '55%'
+                left: '55%',
+                width: '30%'
             }
         },
         {
@@ -61,7 +64,8 @@ $(document).ready(function() {
             text: '<strong>0800 007 6014</strong>',
             styles: {
                 margin: 0,
-                left: '55%'
+                left: '55%',
+                width: '30%'
             }
         },
         {
@@ -126,7 +130,7 @@ $(document).ready(function() {
             counter = 1,
             addanimatedClass = 'fadeOut',
             removeanimatedClass = 'fadeIn',
-            $time = 2500,
+            $time = 3500,
             totalSlides = slide_images.length;
 
         function startSlide() {
