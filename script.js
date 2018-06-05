@@ -1,41 +1,77 @@
-'use strict';
+65 % 'use strict';
 
 
 $(document).ready(function() {
+    /*
 
+        first 3 - move down (bold text)
+
+        next 4 - move to the right (shrink box)(bold text)
+
+        logoslide - move down
+
+    */
     const slide_images = [{
             image: 'images/iphone-call-declined.jpg',
-            text: 'Unknown Number (Predictive Dialling Calls or Silent Calls Harassment)'
+            text: '<strong>Unknown Number</strong> (Predictive Dialling Calls or Silent Calls) <strong>Harassment</strong>',
+            styles: {
+                top: '65%'
+            }
         },
         {
             image: 'images/Legal-Action.jpg',
-            text: 'Debt Collection (Letters, Email, SMS Text Harassment)'
+            text: '<strong>Debt Collection</strong> (Letters, Email, SMS Text) <strong>Harassment</strong>',
+            styles: {
+                top: '65%'
+            }
         },
         {
             image: 'images/Royal-Courts-of-Justice.jpg',
-            text: 'Defence to  a Legal Claim (Judgment, Charging Order, AoE'
+            text: '<strong>Defence to a Legal Claim</strong> (Judgement, Charging Order, Attachment of Earnings)',
+            styles: {
+                top: '65%'
+            }
         },
         {
             image: 'images/Justice.jpg',
-            text: 'Experience'
+            text: '<strong>Experience</strong>',
+            styles: {
+                margin: 0,
+                left: '55%'
+            }
         },
         {
             image: 'images/Halsburys-Statutes-1unn4zh.jpg',
-            text: 'Expertise'
+            text: '<strong>Expertise</strong>',
+            styles: {
+                margin: 0,
+                left: '55%'
+            }
         },
         {
             image: 'images/Birningham-Skyline.jpg',
-            text: 'Innovation'
+            text: '<strong>Innovation</strong>',
+            styles: {
+                margin: 0,
+                left: '55%'
+            }
         },
         {
             image: 'images/sunsethome.jpg',
-            text: '0800 007 6014 '
+            text: '<strong>0800 007 6014</strong>',
+            styles: {
+                margin: 0,
+                left: '55%'
+            }
         },
         {
             image: 'images/Birmingham-canal.jpg',
             text: '3lc logo',
             logo: true,
-            logo_addr: 'images/3lc-clear.png'
+            logo_addr: 'images/3lc-clear.png',
+            styles: {
+                top: '55%'
+            }
         }
     ];
 
@@ -49,7 +85,7 @@ $(document).ready(function() {
                 imgtag = document.createElement('img');
 
             // add classes to slidebox element
-            slideBox.classList.add('slidebox', 'slide-box-' + (i + 1));
+            slideBox.classList.add('slidebox', 'slide-box-' + (i + 1), 'animated');
 
             imgtag.setAttribute('src', slide_images[i].image);
             imgtag.setAttribute('class', 'image-' + (i + 1));
@@ -63,6 +99,12 @@ $(document).ready(function() {
                 //append logo to h2
                 slidetext.appendChild(logo_img);
                 slidetext.classList.add('justify-content-center', 'align-items-center');
+            }
+
+            for (var key in slide_images[i].styles) {
+                if (slide_images[i].styles.hasOwnProperty(key)) {
+                    slidetext.style[key] = slide_images[i].styles[key];
+                }
             }
 
             //append our content to the slidebox
@@ -80,83 +122,141 @@ $(document).ready(function() {
 
     if (initSlideshow()) {
 
-        function restartTimeline() {
+        let slide_class = '.slide-box-',
+            counter = 1,
+            addanimatedClass = 'fadeOut',
+            removeanimatedClass = 'fadeIn',
+            $time = 2500,
+            totalSlides = slide_images.length;
+
+        function startSlide() {
+            if (counter > totalSlides) {
+                counter = 1;
+                resetSlide();
+                return;
+            }
+
+            let slide_name = slide_class + counter,
+                current_slide = document.querySelector(slide_name);
+
+            console.log('current slide');
+            console.log(current_slide);
+
+            addanimatedClass = 'fadeOut';
+
+            if (current_slide.classList.contains('fadeIn')) {
+                current_slide.classList.remove('fadeIn');
+            }
+
+            current_slide.classList.add(addanimatedClass);
+
+            console.log('interval');
+            console.log(slide_class + counter);
+
+
+            counter++;
+        }
+
+        function resetSlide() {
+            clearInterval(slide_interval);
+            let all_slidebox = document.querySelectorAll('.slidebox');
+
+            console.log('reset slide');
+
+            all_slidebox[7].classList.remove('fadeOut');
+            all_slidebox[7].classList.add('fadeIn');
+
+
+
             setTimeout(function() {
-                tl.restart();
-            }, 500)
+                for (var i = 0; i < (all_slidebox.length - 1); i++) {
+                    all_slidebox[i].classList.remove('fadeOut');
+                }
+
+                slide_interval = setInterval(startSlide, $time);
+            }, 1500);
 
         }
 
-        let tl = new TimelineMax();
+        let slide_interval = setInterval(startSlide, $time);
 
-        tl.to('.slide-box-1', 2, {
-            opacity: 0,
-            delay: 3,
-            left: '-100%',
-            ease: Power1.easeIn,
-            onComplete: function() {
-
-            }
-        });
-
-        tl.to('.slide-box-2', 2, {
-            opacity: 0,
-            // left: '-100%',
-            delay: 3,
-            ease: Power1.easeInOut,
-            onComplete: function() {
-
-            }
-        });
-
-        tl.to('.slide-box-3', 2, {
-            opacity: 0,
-            // left: '-100%',
-            delay: 3,
-            ease: Power1.easeInOut,
-            onComplete: function() {
-
-            }
-        });
-
-        tl.to('.slide-box-4', 2, {
-            opacity: 0,
-            // left: '-100%',
-            delay: 3,
-            ease: Power1.easeInOut,
-            onComplete: function() {
-
-            }
-        });
-        tl.to('.slide-box-5', 2, {
-            opacity: 0,
-            // left: '-100%',
-            delay: 3,
-            ease: Power1.easeInOut,
-            onComplete: function() {
-
-            }
-        });
-        tl.to('.slide-box-6', 2, {
-            opacity: 0,
-            // left: '-100%',
-            delay: 3,
-            ease: Power1.easeInOut,
-            onComplete: function() {
-
-            }
-        });
-        tl.to('.slide-box-7', 2, {
-            opacity: 0,
-            // left: '-100%',
-            delay: 3,
-            ease: Power1.easeInOut,
-            onComplete: function() {
-
-            }
-        });
-
-        tl.eventCallback('onComplete', restartTimeline);
+        // function restartTimeline() {
+        //     setTimeout(function() {
+        //         tl.restart();
+        //     }, 500)
+        //
+        // }
+        //
+        // let tl = new TimelineMax();
+        //
+        // tl.to('.slide-box-1', 2, {
+        //     opacity: 0,
+        //     delay: 3,
+        //     left: '-100%',
+        //     ease: Power1.easeIn,
+        //     onComplete: function() {
+        //
+        //     }
+        // });
+        //
+        // tl.to('.slide-box-2', 2, {
+        //     opacity: 0,
+        //     // left: '-100%',
+        //     delay: 3,
+        //     ease: Power1.easeInOut,
+        //     onComplete: function() {
+        //
+        //     }
+        // });
+        //
+        // tl.to('.slide-box-3', 2, {
+        //     opacity: 0,
+        //     // left: '-100%',
+        //     delay: 3,
+        //     ease: Power1.easeInOut,
+        //     onComplete: function() {
+        //
+        //     }
+        // });
+        //
+        // tl.to('.slide-box-4', 2, {
+        //     opacity: 0,
+        //     // left: '-100%',
+        //     delay: 3,
+        //     ease: Power1.easeInOut,
+        //     onComplete: function() {
+        //
+        //     }
+        // });
+        // tl.to('.slide-box-5', 2, {
+        //     opacity: 0,
+        //     // left: '-100%',
+        //     delay: 3,
+        //     ease: Power1.easeInOut,
+        //     onComplete: function() {
+        //
+        //     }
+        // });
+        // tl.to('.slide-box-6', 2, {
+        //     opacity: 0,
+        //     // left: '-100%',
+        //     delay: 3,
+        //     ease: Power1.easeInOut,
+        //     onComplete: function() {
+        //
+        //     }
+        // });
+        // tl.to('.slide-box-7', 2, {
+        //     opacity: 0,
+        //     // left: '-100%',
+        //     delay: 3,
+        //     ease: Power1.easeInOut,
+        //     onComplete: function() {
+        //
+        //     }
+        // });
+        //
+        // tl.eventCallback('onComplete', restartTimeline);
 
 
     }

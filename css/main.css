@@ -2,7 +2,42 @@ body, html {
   height: 100%;
   width: 100%; }
 
+.animated {
+  -webkit-animation-duration: 1.5s;
+  animation-duration: 1.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+@keyframes fadeOut {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut; }
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn; }
+
 .slide-jumbotron {
+  margin-bottom: 0;
   padding: 0 !important;
   height: 300px;
   -webkit-transition: all .2s ease;
@@ -21,7 +56,7 @@ body, html {
       height: 100%; } }
 
 .slide-container {
-  height: inherit;
+  height: 100%;
   width: 100%;
   margin: auto;
   position: relative;
@@ -45,14 +80,17 @@ body, html {
     .slide-container .slidebox h2 {
       text-align: center;
       position: relative;
-      top: 48%;
+      top: 45%;
       z-index: 40;
       background-color: #f2f2f2;
-      width: 50%;
+      font-size: 1.2em;
       margin: auto;
       opacity: 0.9;
       padding: 20px;
       color: #222; }
+      @media only screen and (min-width: 568px) {
+        .slide-container .slidebox h2 {
+          width: 40%; } }
       .slide-container .slidebox h2 img {
         position: relative;
         width: 90px !important;
