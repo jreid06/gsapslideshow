@@ -38,7 +38,7 @@ $(document).ready(function() {
             styles: {
                 margin: 0,
                 left: '55%',
-                width: '30%'
+                width: '20%'
             }
         },
         {
@@ -47,7 +47,7 @@ $(document).ready(function() {
             styles: {
                 margin: 0,
                 left: '55%',
-                width: '30%'
+                width: '20%'
             }
         },
         {
@@ -56,7 +56,7 @@ $(document).ready(function() {
             styles: {
                 margin: 0,
                 left: '55%',
-                width: '30%'
+                width: '20%'
             }
         },
         {
@@ -65,7 +65,7 @@ $(document).ready(function() {
             styles: {
                 margin: 0,
                 left: '55%',
-                width: '30%'
+                width: '20%'
             }
         },
         {
