@@ -37,7 +37,7 @@ $(document).ready(function() {
             text: '<strong>Experience</strong>',
             styles: {
                 margin: 0,
-                left: '55%',
+                left: '70%',
                 width: '20%'
             }
         },
@@ -46,7 +46,7 @@ $(document).ready(function() {
             text: '<strong>Expertise</strong>',
             styles: {
                 margin: 0,
-                left: '55%',
+                left: '70%',
                 width: '20%'
             }
         },
@@ -55,7 +55,7 @@ $(document).ready(function() {
             text: '<strong>Innovation</strong>',
             styles: {
                 margin: 0,
-                left: '55%',
+                left: '70%',
                 width: '20%'
             }
         },
@@ -64,7 +64,7 @@ $(document).ready(function() {
             text: '<strong>0800 007 6014</strong>',
             styles: {
                 margin: 0,
-                left: '55%',
+                left: '70%',
                 width: '20%'
             }
         },
