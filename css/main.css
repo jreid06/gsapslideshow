@@ -55,6 +55,14 @@ body, html {
     .slide-jumbotron {
       height: 100%; } }
 
+.slide-text-styles {
+  width: 50% !important;
+  left: 21% !important; }
+  @media only screen and (min-width: 768px) {
+    .slide-text-styles {
+      width: 20% !important;
+      left: 31% !important; } }
+
 .slide-container {
   height: 100%;
   width: 100%;
@@ -78,6 +86,8 @@ body, html {
       position: absolute;
       height: inherit; }
     .slide-container .slidebox h2 {
+      -webkit-transition: all .2s;
+      transition: all .2s;
       text-align: center;
       position: relative;
       top: 45%;
@@ -87,10 +97,11 @@ body, html {
       margin: auto;
       opacity: 0.9;
       padding: 20px;
-      color: #222; }
+      color: #222;
+      width: 60%; }
       @media only screen and (min-width: 568px) {
         .slide-container .slidebox h2 {
-          width: 40%; } }
+          top: 65%; } }
       .slide-container .slidebox h2 img {
         position: relative;
         width: 90px !important;

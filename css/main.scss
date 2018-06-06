@@ -60,6 +60,8 @@ body, html{
   animation-name: fadeIn;
 }
 
+
+
 .slide-jumbotron{
     margin-bottom: 0;
     padding: 0 !important;
@@ -84,6 +86,18 @@ body, html{
     }
 }
 
+.slide-text-styles{
+    width: 50% !important;
+    left: 21% !important;
+
+    @media only screen and (min-width: 768px) {
+        width: 20% !important;
+        left: 31% !important;
+
+    }
+
+}
+
 .slide-container {
     // border: 1px solid red;
     height: 100%;
@@ -105,8 +119,13 @@ body, html{
         transition: all .4s;
         z-index: 1;
 
-        &:nth-child(2n+2){
-            // left: 100%;
+        &:nth-child(1){
+            // h2{
+            //     color: gold;
+            //     @media only screen and (min-width: 568px) {
+            //         top: 65% !importants;
+            //     }
+            // }
         }
 
         img {
@@ -117,6 +136,8 @@ body, html{
         }
 
         h2 {
+            -webkit-transition: all .2s;
+            transition: all .2s;
             text-align: center;
             position: relative;
             top: 45%;
@@ -128,9 +149,11 @@ body, html{
             opacity: 0.9;
             padding: 20px;
             color: #222;
+            width: 60%;
 
             @media only screen and (min-width: 568px) {
-                width: 40%;
+                // width: 40%;
+                top: 65%;
             }
 
             @media only screen and (min-width: 768px) {

@@ -11,16 +11,21 @@ $(document).ready(function() {
         logoslide - move down
 
     */
+    const $responsiveClass = 'slide-text-styles';
+
     const slide_images = [{
             image: 'images/iphone-call-declined.jpg',
             text: '<strong>Unknown Number</strong> (Predictive Dialling Calls or Silent Calls) <strong>Harassment</strong>',
+            defaultStyles: true,
             styles: {
-                top: '65%'
+                // top: '45%',
+                width: '70%'
             }
         },
         {
             image: 'images/Legal-Action.jpg',
             text: '<strong>Debt Collection</strong> (Letters, Email, SMS Text) <strong>Harassment</strong>',
+            defaultStyles: true,
             styles: {
                 top: '65%'
             }
@@ -28,6 +33,7 @@ $(document).ready(function() {
         {
             image: 'images/Royal-Courts-of-Justice.jpg',
             text: '<strong>Defence to a Legal Claim</strong> (Judgement, Charging Order, Attachment of Earnings)',
+            defaultStyles: true,
             styles: {
                 top: '65%'
             }
@@ -35,44 +41,37 @@ $(document).ready(function() {
         {
             image: 'images/Justice.jpg',
             text: '<strong>Experience</strong>',
-            styles: {
-                margin: 0,
-                left: '70%',
-                width: '20%'
-            }
+            defaultStyles: false,
+            responsiveStyling: true,
+            responsiveClass: $responsiveClass
         },
         {
             image: 'images/Halsburys-Statutes-1unn4zh.jpg',
             text: '<strong>Expertise</strong>',
-            styles: {
-                margin: 0,
-                left: '70%',
-                width: '20%'
-            }
+            defaultStyles: false,
+            responsiveStyling: true,
+            responsiveClass: $responsiveClass
         },
         {
             image: 'images/Birningham-Skyline.jpg',
             text: '<strong>Innovation</strong>',
-            styles: {
-                margin: 0,
-                left: '70%',
-                width: '20%'
-            }
+            defaultStyles: false,
+            responsiveStyling: true,
+            responsiveClass: $responsiveClass
         },
         {
             image: 'images/sunsethome.jpg',
             text: '<strong>0800 007 6014</strong>',
-            styles: {
-                margin: 0,
-                left: '70%',
-                width: '20%'
-            }
+            defaultStyles: false,
+            responsiveStyling: true,
+            responsiveClass: $responsiveClass
         },
         {
             image: 'images/Birmingham-canal.jpg',
             text: '3lc logo',
             logo: true,
             logo_addr: 'images/3lc-clear.png',
+            defaultStyles: true,
             styles: {
                 top: '55%'
             }
@@ -105,11 +104,18 @@ $(document).ready(function() {
                 slidetext.classList.add('justify-content-center', 'align-items-center');
             }
 
-            for (var key in slide_images[i].styles) {
-                if (slide_images[i].styles.hasOwnProperty(key)) {
-                    slidetext.style[key] = slide_images[i].styles[key];
+            if (slide_images[i].responsiveStyling) {
+                slidetext.classList.add(slide_images[i].responsiveClass);
+            }
+
+            if (slide_images[i].defaultStyles) {
+                for (var key in slide_images[i].styles) {
+                    if (slide_images[i].styles.hasOwnProperty(key)) {
+                        slidetext.style[key] = slide_images[i].styles[key];
+                    }
                 }
             }
+
 
             //append our content to the slidebox
             slideBox.appendChild(imgtag);
