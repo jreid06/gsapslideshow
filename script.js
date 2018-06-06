@@ -27,7 +27,8 @@ $(document).ready(function() {
             text: '<strong>Debt Collection</strong> (Letters, Email, SMS Text) <strong>Harassment</strong>',
             defaultStyles: true,
             styles: {
-                top: '65%'
+                // top: '65%'
+                width: '70%'
             }
         },
         {
@@ -35,7 +36,8 @@ $(document).ready(function() {
             text: '<strong>Defence to a Legal Claim</strong> (Judgement, Charging Order, Attachment of Earnings)',
             defaultStyles: true,
             styles: {
-                top: '65%'
+                // top: '65%'
+                width: '70%'
             }
         },
         {
